@@ -322,7 +322,7 @@ function handleOrientation(event) {
 }
 
 function handleTouch(evt) {
-  requestOrientation();
+  //requestOrientation();
   //evt.preventDefault();
 
   keys["w"] = false;
