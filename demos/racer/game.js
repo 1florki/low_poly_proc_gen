@@ -1,13 +1,4 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/build/three.module.js';
-import {
-  EffectComposer
-} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/postprocessing/EffectComposer.js';
-import {
-  RenderPass
-} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/postprocessing/RenderPass.js';
-import {
-  BokehPass
-} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/postprocessing/BokehPass.js';
 
 import {
   GLTFHelper
@@ -18,14 +9,6 @@ import {
 import {
   Gradient
 } from 'https://1florki.github.io/threejsutils/gradient.js'
-import {
-  ShadowVolumeMesh
-} from 'https://1florki.github.io/threejsutils/shadow.js'
-
-import {
-  TextGenerator
-} from 'https://1florki.github.io/threejsutils/text.js'
-
 
 import {
   Noise
