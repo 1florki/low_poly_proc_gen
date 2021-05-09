@@ -76,7 +76,7 @@ const defaultOptionsIslands = {
 
   vegetation: {
     enabled: true,
-    folder: "vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["commontree1.glb", "commontree2.glb", "commontree3.glb", "plant1.glb", "plant2.glb", "plant3.glb", "palm1.glb", "palm2.glb", "palm3.glb", "palm4.glb", "grass1.glb", "grass2.glb", "grass3.glb", "bush1.glb", "bush2.glb", "cactus_flower1.glb"],
     scale: 0.05,
     itemCount: 15,
@@ -149,7 +149,7 @@ const defaultOptionsDesert = {
 
   vegetation: {
     enabled: true,
-    folder: "./../../0_1/vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["plant1.glb", "plant2.glb", "plant3.glb", "palm1.glb", "palm2.glb", "palm3.glb", "palm4.glb", "grass1.glb", "grass2.glb", "grass3.glb", "cactus1.glb", "cactus2.glb", "cactus3.glb", "cactus4.glb", "cactus5.glb", "cactus_flower1.glb", "cactus_flower2.glb", "cactus_flower3.glb"],
     scale: 0.05,
     itemCount: 8,
@@ -222,7 +222,7 @@ const defaultOptionsForest = {
 
   vegetation: {
     enabled: true,
-    folder: "vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["plant1.glb", "plant2.glb", "plant3.glb", "plant4.glb", "grass1.glb", "grass2.glb", "grass3.glb", "birch1.glb", "birch2.glb", "birch3.glb", "birch4.glb", "birch5.glb", "birch_dead1.glb", "birch_dead2.glb", "bush1.glb", "bush2.glb", "bush_berries1.glb", "bush_berries2.glb", "pine1.glb", "pine2.glb", "pine3.glb", "pine4.glb", "treestump.glb", "treestump_moss.glb", "rock1.glb", "rock2.glb", "rock3.glb", "rock_moss1.glb", "rock_moss2.glb", "commontree1.glb", "commontree3.glb", "commontree4.glb", "commontree5.glb", "commontree_dead1.glb", "commontree_dead2.glb", "willow1.glb", "willow2.glb", "willow3.glb", "willow_dead1.glb", "willow_dead2.glb"],
     scale: 0.05,
     itemCount: 10,
@@ -295,7 +295,7 @@ const defaultOptionsForestMountains = {
 
   vegetation: {
     enabled: true,
-    folder: "vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["plant1.glb", "plant2.glb", "plant3.glb", "plant4.glb", "grass1.glb", "grass2.glb", "grass3.glb", "birch1.glb", "birch2.glb", "birch3.glb", "birch4.glb", "birch5.glb", "birch_dead1.glb", "birch_dead2.glb", "bush1.glb", "bush2.glb", "bush_berries1.glb", "bush_berries2.glb", "pine1.glb", "pine2.glb", "pine3.glb", "pine4.glb", "rock1.glb", "rock2.glb", "rock3.glb", "rock4.glb", "rock5.glb", "rock6.glb", "rock_moss1.glb", "rock_moss2.glb", "rock_moss3.glb", "rock_moss4.glb", "commontree1.glb", "commontree3.glb", "commontree4.glb", "commontree5.glb", "commontree_dead1.glb", "commontree_dead2.glb", "pine_snow1.glb", "pine_snow2.glb", "pine_snow3.glb", "pine_snow4.glb", "commontree_snow1.glb", "commontree_snow2.glb", "commontree_snow3.glb", "birch_snow1.glb", "birch_snow2.glb"],
     scale: 0.04,
     itemCount: 10,
@@ -358,7 +358,7 @@ const defaultOptionsSnowForest = {
 
   vegetation: {
     enabled: true,
-    folder: "vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["birch_dead_snow1.glb", "birch_dead_snow2.glb", "birch_dead_snow3.glb", "birch_dead_snow4.glb",
             "rock1.glb", "rock2.glb", "rock3.glb", "rock4.glb", "rock5.glb", "rock6.glb",
             "rock_snow1.glb", "rock_snow2.glb", "rock_snow3.glb", "rock_snow4.glb",
@@ -438,7 +438,7 @@ const defaultOptionsAutumnForest = {
 
   vegetation: {
     enabled: true,
-    folder: "vegetation/",
+    folder: "https://1florki.github.io/low_poly_proc_gen/0_1/vegetation/",
     models: ["birch_autumn1.glb", "birch_autumn2.glb", "birch_autumn3.glb", "birch_autumn4.glb",
             "rock1.glb", "rock2.glb", "rock3.glb", "rock4.glb", "rock5.glb", "rock_moss1.glb", "rock_moss2.glb",
             "pine_autumn1.glb", "pine_autumn2.glb", "pine_autumn3.glb", "pine_autumn4.glb", "pine_autumn5.glb",
