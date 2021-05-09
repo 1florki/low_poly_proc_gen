@@ -108,6 +108,10 @@ function setupScene() {
     keys[event.key.toLowerCase()] = false
   }, false);
 
+  document.addEventListener("mouseup", () => {
+    requestOrientation();
+  })
+  
   // window resize
   window.addEventListener("resize", onWindowResize, false);
 
