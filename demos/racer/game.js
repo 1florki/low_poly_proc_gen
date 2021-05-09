@@ -295,7 +295,7 @@ function setupScene() {
 function requestOrientation() {
   if (didOrientationRequest) return;
   didOrientationRequest = true;
-
+  console.log("requesting orientation");
   if (typeof (DeviceMotionEvent) !== 'undefined' && typeof (DeviceMotionEvent.requestPermission) === 'function') {
     DeviceMotionEvent.requestPermission().then(response => {
       if (response === 'granted') {
@@ -413,8 +413,6 @@ function animate(now) {
 
     move.z += acc;
 
-    //console.log(orientation);
-
     if (orientation != undefined && (gamepads.length < 1 || gamepads[0] != undefined)) {
       steering = ((orientation + steering * 20) / 21) * 0.08;
     } else {
@@ -442,126 +440,9 @@ function animate(now) {
   planet.animate(total);
 
   if(controls) controls.update();
-    console.log(renderer.info);
+  
   render();
 }
-class Particles {
-  constructor(opt) {
-    opt = opt || {};
-
-    this.num = opt.num || 20000;
-
-    this.size = opt.size || .003;
-
-    this.boxSize = opt.boxSize || 2;
-    this.boxPosition = opt.boxPosition || new THREE.Vector3(0, 0, 0);
-    this.sizeAttenuation = opt.sizeAttenuation != undefined ? opt.sizeAttenuation : true;
-    this.vertexColors = opt.vertexColors || false;
-    this.color = opt.color || new THREE.Color(0xffffff);
-    this.maxSpeed = opt.maxSpeed || 0.15;
-
-    this.noise = new Noise({
-      min: -0.01,
-      max: 0.01,
-      scale: 0.04,
-      octaves: 2,
-      persistence: 0.5
-    })
-
-    this.createParticles();
-  }
-
-  createParticles() {
-    this.geo = new THREE.BufferGeometry();
-
-    this.positionData = new Float32Array(this.num * 3);
-    this.speedData = new Float32Array(this.num * 3);
-    this.accData = new Float32Array(this.num * 3);
-
-    for (let i = 0; i < this.num * 3; i += 3) {
-      this.reset(i, 0.5 + Math.random() * 1);
-      /*
-      this.positionData[i] = (Math.random() - 0.5) * this.boxSize + this.boxPosition.x;
-      this.positionData[i + 1] = (Math.random() - 0.5) * this.boxSize + this.boxPosition.y;
-      this.positionData[i + 2] = (Math.random() - 0.5) * this.boxSize + this.boxPosition.z;*/
-    }
-    this.geo.setAttribute('position', new THREE.BufferAttribute(this.positionData, 3));
-
-    if (this.vertexColors) {
-      this.colorData = new Float32Array(this.num * 3);
-      this.geo.setAttribute('color', new THREE.BufferAttribute(this.colorData, 3));
-    }
-
-    var mat = new THREE.PointsMaterial({
-      vertexColors: this.vertexColors,
-      size: this.size,
-      sizeAttenuation: this.sizeAttenuation,
-      color: this.color,
-      transparent: true,
-      opacity: 0.3
-    });
-    this.mesh = new THREE.Points(this.geo, mat);
-  }
-
-  reset(i, height) {
-    let x = (Math.random() - 0.5) * this.boxSize + this.boxPosition.x;
-    let y = (Math.random() - 0.5) * this.boxSize + this.boxPosition.y;
-    let z = (Math.random() - 0.5) * this.boxSize + this.boxPosition.z;
-    let l = Math.sqrt(x * x + y * y + z * z);
-    this.positionData[i] = x / l * height;
-    this.positionData[i + 1] = y / l * height;
-    this.positionData[i + 2] = z / l * height;
-
-    this.accData[i] = 0;
-    this.accData[i + 1] = 0;
-    this.accData[i + 2] = 0;
-
-    this.speedData[i] = 0;
-    this.speedData[i + 1] = 0;
-    this.speedData[i + 2] = 0;
-  }
-
-  update(dt) {
-    for (let i = 0; i < this.num * 3; i += 3) {
-      let x = this.positionData[i],
-        y = this.positionData[i + 1],
-        z = this.positionData[i + 2];
-
-      this.positionData[i] += this.speedData[i] * dt;
-      this.positionData[i + 1] += this.speedData[i + 1] * dt;
-      this.positionData[i + 2] += this.speedData[i + 2] * dt;
-
-      let dist = Math.sqrt(x * x + y * y + z * z);
-
-      if (dist < 0.5) {
-        this.reset(i, 1.5)
-      }
-
-      this.speedData[i] += this.accData[i];
-      this.speedData[i + 1] += this.accData[i + 1];
-      this.speedData[i + 2] += this.accData[i + 2];
-
-      let speed = Math.sqrt(Math.pow(this.speedData[i], 2) + Math.pow(this.speedData[i + 1], 2) + Math.pow(this.speedData[i + 2], 2));
-      if (speed > this.maxSpeed) {
-        this.speedData[i] /= (speed / this.maxSpeed);
-        this.speedData[i + 1] /= (speed / this.maxSpeed);
-        this.speedData[i + 2] /= (speed / this.maxSpeed);
-      }
-
-      let grav = 0.01;
-      this.accData[i] = this.noise.getValue(x + 10, y, z) - x * grav;
-      this.accData[i + 1] = this.noise.getValue(x + 20, y, z) - y * grav;
-      this.accData[i + 2] = this.noise.getValue(x, y, z) - z * grav;
-    }
-    this.geo.attributes.position.needsUpdate = true;
-
-    if (this.vertexColors) this.geo.attributes.color.needsUpdate = true;
-
-    this.noise.shiftBy(0.05, 0.01, 0.09);
-  }
-
-}
-
 
 setupScene();
 animate();
