@@ -109,6 +109,7 @@ function setupScene() {
   }, false);
 
   document.addEventListener("mouseup", () => {
+    console.log("mouseup");
     requestOrientation();
   })
   
