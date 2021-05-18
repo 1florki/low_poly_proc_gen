@@ -71,9 +71,7 @@ function setupScene() {
   let ratio = window.innerWidth / window.innerHeight * (settings.stereo ? 2 : 1);
 
   cam = new THREE.PerspectiveCamera(60, ratio, 0.02, 13);
-
-  if (settings.stereo) controls = new DeviceOrientationControls(cam);
-
+  
   // touch events for mobile
   
   let el = renderer.domElement;
@@ -127,7 +125,9 @@ function setupScene() {
     stereoEffect = new StereoEffect(renderer);
     stereoEffect.aspect = window.innerWidth / window.innerHeight
     stereoEffect.setEyeSeparation(0.003)
-    stereoEffect.setSize(window.innerWidth, window.innerHeight);
+    stereoEffect.setSize(window.innerWidth, window.innerHeight); 
+    
+    controls = new DeviceOrientationControls(cam);
   }
 
   // create road
