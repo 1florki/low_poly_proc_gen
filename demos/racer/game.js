@@ -118,6 +118,11 @@ function setupScene() {
   scene.add(sun.sun);
   scene.add(sun.light);
 
+  let params = new URLSearchParams(location.search);
+  let stereo = params.get('stereo');
+  
+  if(stereo == "true") settings.stereo = true;
+  
   if (settings.stereo) {
     stereoEffect = new StereoEffect(renderer);
     stereoEffect.aspect = window.innerWidth / window.innerHeight
